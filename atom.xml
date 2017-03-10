@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>博客</title>
+  <title>Heng&#39;s Blog</title>
   <subtitle>没有灯光，自己发光</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.huangheng.site/"/>
-  <updated>2017-03-09T11:05:08.096Z</updated>
+  <updated>2017-03-10T16:01:13.740Z</updated>
   <id>http://www.huangheng.site/</id>
   
   <author>
-    <name>衡</name>
+    <name>Heng</name>
     <email>huangheng1208@gmail.com</email>
   </author>
   
@@ -20,19 +20,23 @@
     <link href="http://www.huangheng.site/2017/03/09/first/"/>
     <id>http://www.huangheng.site/2017/03/09/first/</id>
     <published>2017-03-09T11:00:34.000Z</published>
-    <updated>2017-03-09T11:05:08.096Z</updated>
+    <updated>2017-03-10T16:01:13.740Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="New-One"><a href="#New-One" class="headerlink" title="New One"></a>New One</h1><p><code>public static void main(String[] args){   }</code></p>
+    <content type="html"><![CDATA[<h1 id="New-One"><a href="#New-One" class="headerlink" title="New One"></a>New One</h1><p><code>public static void main(String[] args){   }s</code>dfdsfasdf<code>public static void main(String[] args){   }s</code>dfdsfasdf<code>public static void main(String[] args){   }s</code><a id="more"></a>dfdsfasdf<code>public static void main(String[] args){   }s</code>dfdsfasdf<code>public static void main(String[] args){   }s</code>dfdsfasdf<code>public static void main(String[] args){   }s</code>dfdsfasdf</p>
+<p>dsfsadfasdf</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;i <span class="class"><span class="keyword">class</span></span>=<span class="string">"icon icon-book icon-lg"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;New-One&quot;&gt;&lt;a href=&quot;#New-One&quot; class=&quot;headerlink&quot; title=&quot;New One&quot;&gt;&lt;/a&gt;New One&lt;/h1&gt;&lt;p&gt;&lt;code&gt;public static void main(String[] args){   }&lt;
+      &lt;h1 id=&quot;New-One&quot;&gt;&lt;a href=&quot;#New-One&quot; class=&quot;headerlink&quot; title=&quot;New One&quot;&gt;&lt;/a&gt;New One&lt;/h1&gt;&lt;p&gt;&lt;code&gt;public static void main(String[] args){   }s&lt;/code&gt;dfdsfasdf&lt;code&gt;public static void main(String[] args){   }s&lt;/code&gt;dfdsfasdf&lt;code&gt;public static void main(String[] args){   }s&lt;/code&gt;
     
     </summary>
     
     
       <category term="Android" scheme="http://www.huangheng.site/tags/Android/"/>
+    
+      <category term="java" scheme="http://www.huangheng.site/tags/java/"/>
     
   </entry>
   
