@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Heng&#39;s Blog</title>
-  <subtitle>没有灯光，自己发光</subtitle>
+  
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.huangheng.site/"/>
