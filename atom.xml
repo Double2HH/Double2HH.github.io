@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Heng&#39;s Blog</title>
-  
+  <title>Heng</title>
+  <subtitle>Blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.huangheng.site/"/>
@@ -52,9 +52,9 @@
       <category term="编程题" scheme="http://www.huangheng.site/categories/%E7%BC%96%E7%A8%8B%E9%A2%98/"/>
     
     
-      <category term="algorithm" scheme="http://www.huangheng.site/tags/algorithm/"/>
-    
       <category term="java" scheme="http://www.huangheng.site/tags/java/"/>
+    
+      <category term="algorithm" scheme="http://www.huangheng.site/tags/algorithm/"/>
     
   </entry>
   
