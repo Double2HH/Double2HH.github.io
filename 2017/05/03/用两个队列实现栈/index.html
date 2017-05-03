@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://huangheng.site/2017/05/03/用两个队列实现栈/">
+    
+    
+    <title>用两个队列实现栈 | Heng | Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="java,algorithm">
+    <meta name="description" content="用两个队列实现栈。栈的声明如下，请实现它的两个函数push和pop，分别完成结点入栈和出栈的功能。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用两个队列实现栈">
+<meta property="og:url" content="http://www.huangheng.site/2017/05/03/用两个队列实现栈/index.html">
+<meta property="og:site_name" content="Heng">
+<meta property="og:description" content="用两个队列实现栈。栈的声明如下，请实现它的两个函数push和pop，分别完成结点入栈和出栈的功能。">
+<meta property="og:image" content="http://www.huangheng.site/\img\用两个队列模拟一个栈的操作.png">
+<meta property="og:updated_time" content="2017-05-03T04:46:17.482Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用两个队列实现栈">
+<meta name="twitter:description" content="用两个队列实现栈。栈的声明如下，请实现它的两个函数push和pop，分别完成结点入栈和出栈的功能。">
+<meta name="twitter:image" content="http://www.huangheng.site/\img\用两个队列模拟一个栈的操作.png">
+    
+        <link rel="alternative" href="/atom.xml" title="Heng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.9">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Heng</h5>
+          <a href="mailto:huangheng1208@gmail.com" title="huangheng1208@gmail.com" class="mail">huangheng1208@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Double2HH" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">用两个队列实现栈</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">用两个队列实现栈</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-02T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-05-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/编程题/">编程题</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-用两个队列实现栈"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">用两个队列实现栈</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年05月03日 0:00" datetime="2017-05-02T16:00:00.000Z"  itemprop="datePublished">2017-05-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/编程题/">编程题</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>用两个队列实现栈。栈的声明如下，请实现它的两个函数push和pop，分别完成结点入栈和出栈的功能。</p>
+</blockquote>
+<a id="more"></a>
+<p>我们通过一系列栈的压入和弹出操作来分析用两个队列模拟一个栈的过程。我们先往栈内压入一个元素a。由于两个队列现在都是空的，我们可以选择把a插入两个队列中的任意一个。我们不妨把a插入queue1。接下来继续往栈内压入b、c两个元素，我们把它们都插入queue1。这个时候queue1包含3个元素a、b和c，其中a位于队列的头部，c位于队列的尾部（如图1（a）所示）。</p>
+<p>现在我们考虑从栈内弹出一个元素。根据栈的后入先出原则，最后被压入栈的c应该最先被弹出。由于c位于queue1的尾部，而我们每次只能从队列的头部删除元素，因此我们可以先从queue1中依次删除元素a、b并插入到queue2中，再从queue1中删除元素c。这就相当于从栈中弹出元素c了（如图1（b）所示）。我们可以用同样的方法从栈内弹出元素b（如图1（c）所示）。</p>
+<p>接下来我们考虑往栈内压入一个元素d。此时queue1已经有一个元素，我们就把d插入到queue1的尾部（如图1（d）所示）。如果我们再从栈内弹出一个元素，此时被弹出的应该是最后被压入栈的d。由于d位于queue1的尾部，我们只能先从头删除queue1的元素并插入到queue2，直到在queue1中遇到d再直接把它删除（如图1（e）所示）。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\img\用两个队列模拟一个栈的操作.png" alt="图1：用两个队列模拟一个栈的操作" title="">
+                </div>
+                <div class="image-caption">图1：用两个队列模拟一个栈的操作</div>
+            </figure>
+<p>参考代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StackUsingTwoQueue</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//声明两个队列:queue1、queue2</span></div><div class="line">    <span class="keyword">private</span> LinkedBlockingQueue&lt;T&gt; queue1;</div><div class="line">    <span class="keyword">private</span> LinkedBlockingQueue&lt;T&gt; queue2;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">StackUsingTwoQueue</span><span class="params">()</span> </span>&#123;</div><div class="line">        queue1 = <span class="keyword">new</span> LinkedBlockingQueue&lt;T&gt;();</div><div class="line">        queue2 = <span class="keyword">new</span> LinkedBlockingQueue&lt;T&gt;();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 将一个元素入栈</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> element 将要入栈的元素</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(T element)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">//将元素插入到不为空的队列的尾部，如果两个队列均为空则插入到queue1</span></div><div class="line">            <span class="keyword">if</span> (queue1.size() &lt;= <span class="number">0</span> &amp;&amp; queue2.size() &lt;= <span class="number">0</span>) &#123;</div><div class="line">                queue1.put(element);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (queue1.size() &gt; <span class="number">0</span>) &#123;</div><div class="line">                queue1.put(element);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                queue2.put(element);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 将栈顶元素出栈</div><div class="line">     *</div><div class="line">     * <span class="doctag">@return</span> 栈顶元素</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        T result = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (queue1.size() &lt;= <span class="number">0</span> &amp;&amp; queue2.size() &lt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">//栈为空</span></div><div class="line">            System.out.print(<span class="string">"Stack is empty."</span>);</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (queue1.size() &gt; <span class="number">0</span> &amp;&amp; queue2.size() &lt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">//队列queue1不为空，queue2为空，</span></div><div class="line">            <span class="comment">//将queue1中除尾部元素之外的全部元素依次出队列并插入到queue2队列中</span></div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="keyword">while</span> (queue1.size() &gt; <span class="number">1</span>) &#123;</div><div class="line">                    T element = queue1.poll();</div><div class="line">                    queue2.put(element);</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="comment">//queue1中仅剩的一个元素即为栈顶元素</span></div><div class="line">            result = queue1.poll();</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (queue1.size() &lt;= <span class="number">0</span> &amp;&amp; queue2.size() &gt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">//队列queue2不为空，queue1为空，</span></div><div class="line">            <span class="comment">//将queue2中除尾部元素之外的全部元素依次出队列并插入到queue1队列中</span></div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="keyword">while</span> (queue2.size() &gt; <span class="number">1</span>) &#123;</div><div class="line">                    T element = queue2.poll();</div><div class="line">                    queue1.put(element);</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="comment">//queue2中仅剩的一个元素即为栈顶元素</span></div><div class="line">            result = queue2.poll();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-03T04:46:17.482Z" itemprop="dateUpdated">2017年5月3日 12:46</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/05/03/用两个队列实现栈/" target="_blank" rel="external">http://www.huangheng.site/2017/05/03/用两个队列实现栈/</a>
+    </div>
+    <footer>
+        <a href="http://www.huangheng.site">
+            <img src="/img/avatar.jpg" alt="Heng">
+            Heng
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.huangheng.site/2017/05/03/用两个队列实现栈/&title=《用两个队列实现栈》 — Heng&pic=http://www.huangheng.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.huangheng.site/2017/05/03/用两个队列实现栈/&title=《用两个队列实现栈》 — Heng&source=
+用两个队列实现栈。栈的声明如下，请实现它的两个函数push和pop，分别完成结点入栈和出栈的功能。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.huangheng.site/2017/05/03/用两个队列实现栈/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《用两个队列实现栈》 — Heng&url=http://www.huangheng.site/2017/05/03/用两个队列实现栈/&via=http://www.huangheng.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.huangheng.site/2017/05/03/用两个队列实现栈/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/02/用两个栈实现队列/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">用两个栈实现队列</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Heng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.huangheng.site/2017/05/03/用两个队列实现栈/&title=《用两个队列实现栈》 — Heng&pic=http://www.huangheng.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.huangheng.site/2017/05/03/用两个队列实现栈/&title=《用两个队列实现栈》 — Heng&source=
+用两个队列实现栈。栈的声明如下，请实现它的两个函数push和pop，分别完成结点入栈和出栈的功能。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.huangheng.site/2017/05/03/用两个队列实现栈/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《用两个队列实现栈》 — Heng&url=http://www.huangheng.site/2017/05/03/用两个队列实现栈/&via=http://www.huangheng.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.huangheng.site/2017/05/03/用两个队列实现栈/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aS27cMBAFQN//0pNtgljCe03ZgMjiamB7RJYWbfbn6yten79W+/dX3/3/5+0u9cLAwHgt43O78i2T495/K//tN1QMDIwDGFcR7OpzHkCvdslf3/3ZMDAwMO4Z7dETAAYGBsbvB9z7pPTqORgYGBhPXdHWy3MJ4+FcHAMD44WM/Fi///lH+hsYGBivYnzKlRTO7p//1En+eSYGBsbWjDzAtQ3LdvyivfZhYGCcyZgV3ZK0MyHNQnmRN2NgYGzBaJPJ/LhJyJ6Nblz+38DAwNiUsTI8kZT427Bbtz8xMDA2ZbSHbq+DK0NjxRMwMDAOYMxKbEkboB2bmI2RYWBg7M2YjXOtYGa7JEEfAwNjV8bKAMT638xeyjdIDAyMYxhJsaxtc85S03xoI9oeAwNjU8YnWE8dtH0FX+08CAYGxssZs2LZLGiuNw+iwhwGBsZ2jOT6lRfL8tCchOAkuGNgYJzASG5Z67D88+zuh4GBcQIjOWKeWCZXvTwQF3gMDIxjGG0QXCnSzYbSLp+AgYFxAGPlFpmH11n4LgIuBgbGAYz26G1orjPpvJ2JgYGxKeNTrgQwK+7nzc7iDWFgYGzBmJXjn206rrQTahgGBsZrGXmQXUl928BaB1wMDIwDGLMiWrt9e9Ec5uIYGBgYy8G3vRT+YMDFwMDYlDEbs2ibl/leGBgY5zBmzYA2WX0qrGNgYJzGaFPHvD2QNwmS7z7Q1MTAwHgf4w/iK/oIoWJDZAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.9"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.9" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
