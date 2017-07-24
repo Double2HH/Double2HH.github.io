@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>用两个队列实现栈 | doublehuang</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="java,algorithm," />
+  
+
+  <meta name="description" content="用两个队列实现栈。栈的声明如下，请实现它的两个函数push和pop，分别完成结点入栈和出栈的功能。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用两个队列实现栈">
+<meta property="og:url" content="http://www.huangheng.site/编程题/用两个队列实现栈/index.html">
+<meta property="og:site_name" content="doublehuang">
+<meta property="og:description" content="用两个队列实现栈。栈的声明如下，请实现它的两个函数push和pop，分别完成结点入栈和出栈的功能。">
+<meta property="og:image" content="http://www.huangheng.site/\img\用两个队列模拟一个栈的操作.png">
+<meta property="og:updated_time" content="2017-07-23T05:18:03.809Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用两个队列实现栈">
+<meta name="twitter:description" content="用两个队列实现栈。栈的声明如下，请实现它的两个函数push和pop，分别完成结点入栈和出栈的功能。">
+<meta name="twitter:image" content="http://www.huangheng.site/\img\用两个队列模拟一个栈的操作.png">
+
+  
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">导航</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">导航</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/project/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-用两个队列实现栈" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">用两个队列实现栈</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.05.03</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>doublehuang</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/编程题/">编程题</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.huangheng.site/编程题/用两个队列实现栈/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <blockquote>
+<p>用两个队列实现栈。栈的声明如下，请实现它的两个函数push和pop，分别完成结点入栈和出栈的功能。</p>
+</blockquote>
+<a id="more"></a>
+<p>我们通过一系列栈的压入和弹出操作来分析用两个队列模拟一个栈的过程。我们先往栈内压入一个元素a。由于两个队列现在都是空的，我们可以选择把a插入到两个队列中的任意一个。我们不妨把a插入queue1。接下来继续往栈内压入b、c两个元素，我们把它们都插入queue1。这个时候queue1包含3个元素a、b和c，其中a位于队列的头部，c位于队列的尾部（如图1（a）所示）。</p>
+<p>现在我们考虑从栈内弹出一个元素。根据栈的后入先出原则，最后被压入栈的c应该最先被弹出。由于c位于queue1的尾部，而我们每次只能从队列的头部删除元素，因此我们可以先从queue1中依次删除元素a、b并插入到queue2中，再从queue1中删除元素c。这就相当于从栈中弹出元素c了（如图1（b）所示）。我们可以用同样的方法从栈内弹出元素b（如图1（c）所示）。</p>
+<p>接下来我们考虑往栈内压入一个元素d。此时queue1已经有一个元素，我们就把d插入到queue1的尾部（如图1（d）所示）。如果我们再从栈内弹出一个元素，此时被弹出的应该是最后被压入栈的d。由于d位于queue1的尾部，我们只能先从头删除queue1的元素并插入到queue2，直到在queue1中遇到d再直接把它删除（如图1（e）所示）。</p>
+<p><img src="\img\用两个队列模拟一个栈的操作.png" alt="图1：用两个队列模拟一个栈的操作"></p>
+<p>参考代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StackUsingTwoQueue</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//声明两个队列:queue1、queue2</span></div><div class="line">    <span class="keyword">private</span> LinkedBlockingQueue&lt;T&gt; queue1;</div><div class="line">    <span class="keyword">private</span> LinkedBlockingQueue&lt;T&gt; queue2;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">StackUsingTwoQueue</span><span class="params">()</span> </span>&#123;</div><div class="line">        queue1 = <span class="keyword">new</span> LinkedBlockingQueue&lt;T&gt;();</div><div class="line">        queue2 = <span class="keyword">new</span> LinkedBlockingQueue&lt;T&gt;();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 将一个元素入栈</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> element 将要入栈的元素</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(T element)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">//将元素插入到不为空的队列的尾部，如果两个队列均为空则插入到queue1</span></div><div class="line">            <span class="keyword">if</span> (queue1.size() &lt;= <span class="number">0</span> &amp;&amp; queue2.size() &lt;= <span class="number">0</span>) &#123;</div><div class="line">                queue1.put(element);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (queue1.size() &gt; <span class="number">0</span>) &#123;</div><div class="line">                queue1.put(element);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                queue2.put(element);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 将栈顶元素出栈</div><div class="line">     *</div><div class="line">     * <span class="doctag">@return</span> 栈顶元素</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        T result = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (queue1.size() &lt;= <span class="number">0</span> &amp;&amp; queue2.size() &lt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">//栈为空</span></div><div class="line">            System.out.print(<span class="string">"Stack is empty."</span>);</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (queue1.size() &gt; <span class="number">0</span> &amp;&amp; queue2.size() &lt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">//队列queue1不为空，queue2为空，</span></div><div class="line">            <span class="comment">//将queue1中除尾部元素之外的全部元素依次出队列并插入到queue2队列中</span></div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="keyword">while</span> (queue1.size() &gt; <span class="number">1</span>) &#123;</div><div class="line">                    T element = queue1.poll();</div><div class="line">                    queue2.put(element);</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="comment">//queue1中仅剩的一个元素即为栈顶元素</span></div><div class="line">            result = queue1.poll();</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (queue1.size() &lt;= <span class="number">0</span> &amp;&amp; queue2.size() &gt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">//队列queue2不为空，queue1为空，</span></div><div class="line">            <span class="comment">//将queue2中除尾部元素之外的全部元素依次出队列并插入到queue1队列中</span></div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="keyword">while</span> (queue2.size() &gt; <span class="number">1</span>) &#123;</div><div class="line">                    T element = queue2.poll();</div><div class="line">                    queue1.put(element);</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="comment">//queue2中仅剩的一个元素即为栈顶元素</span></div><div class="line">            result = queue2.poll();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/编程题/用两个栈实现队列/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/设计模式/设计模式之工厂模式/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/project/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'doublehuang';
+    
+    var disqus_url = 'http://www.huangheng.site/编程题/用两个队列实现栈/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//doublehuang.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
